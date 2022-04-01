@@ -33,9 +33,14 @@ const SafeUpgrades: React.FC<SafeUpgradesProps> = ({ safe, ethereum }) => {
     const { proxy, implementation } = Eip1967
     const { admin } = proxy
 
+    console.log('implementation:', implementation)
+    console.log('proxy:', proxy);
+    // console.log('admin:', admin)
+
     if (isProxyAdmin(admin)) {
 
       if (isManaged(admin)) {
+        console.log('admin.admin.address:', admin?.admin?.address)
         if ( ! admin.admin.address.isEquivalent(safeAddress)) {
           return err("This proxy's admin is not managed by this Safe")
         }

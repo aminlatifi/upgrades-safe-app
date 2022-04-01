@@ -27,7 +27,11 @@ export default class EthereumBridge {
       if (REACT_APP_INFURA_KEY) {
         this._providerInstance = new ethers.providers.InfuraProvider(EthereumBridge._network, REACT_APP_INFURA_KEY)
       } else {
-        this._providerInstance = ethers.getDefaultProvider()
+        console.log('used default')
+        // this._providerInstance = new ethers.providers.JsonRpcProvider('https://kovan.infura.io/v3/a2415fd6fd1741d9b72b2d8a7d82f945')
+        // this._providerInstance = new ethers.providers.JsonRpcProvider('https://mainnet.infura.io/v3/a2415fd6fd1741d9b72b2d8a7d82f945')
+        this._providerInstance = new ethers.providers.JsonRpcProvider('https://rpc.gnosischain.com/')
+        // this._providerInstance = ethers.getDefaultProvider()
       }
     }
 

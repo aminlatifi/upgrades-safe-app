@@ -35,6 +35,7 @@ export class Eip1967 {
     const adminAddress = await this.detectAdminAddress(bridge, address)
     if (adminAddress.isZeroAddress()) return null
 
+    console.log('adminAddress:', adminAddress)
     // Determine if address is a ProxyAdmin contract
     const proxyAdmin = await this.detectProxyAdmin(bridge, address, adminAddress, implementationAddress)
 
